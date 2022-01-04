@@ -2,6 +2,24 @@
 
 Additions and updates to the Userfront platform
 
+## December 2021
+
+### Add API endpoints to create, invalidate, and delete API keys
+
+Programmatically create, invalidate, and delete API keys: `admin`, `readonly`, and `webhook` key types are supported. Rotate keys as needed to secure your application.
+
+### Allow `test`, `dev`, and `password` as passwords in test mode
+
+Now in test mode you can use `test`, `dev`, and `password` when registering a user or changing their password. This allows for faster testing.
+
+### Streamline SSO signup webhooks
+
+Previously, user registration by SSO would fire a `user created` webhook with the user unconfirmed, followed closely by a `user updated` webhook with the user confirmed. Now only the `user created` webhook is fired, with the user already confirmed.
+
+### Improved certificate generation
+
+Simplified the process for generating certificates for live domains, and removed a bug that affected some subdomains when "include subdomains" was checked.
+
 ## November 2021
 
 ### SAML beta release
