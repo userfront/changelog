@@ -2,6 +2,45 @@
 
 Additions and updates to the Userfront platform
 
+## January 2022
+
+### Improved user search endpoint and documentation
+
+Added search options, fixed some minor display bugs, and improved the documentation for user search. Added examples of advanced filtering with various combinations of `and` and `or` search queries.
+
+### Custom link durations
+
+The [Generate Link](https://userfront.com/docs/api.html#generate-link-credentials), [Invite User](https://userfront.com/docs/api.html#invite-user) and [Invite User to a role](https://userfront.com/docs/api.html#invite-user-to-a-role) endpoints all generate email links with a set expiration by default:
+
+| options.type | Default duration |
+| :----------- | :--------------- |
+| login        | 1 hour           |
+| welcome      | 3 days           |
+| verify       | 3 days           |
+| reset        | 1 hour           |
+
+Now you can also specify custom durations for each type of link, up to 1 week and down to 10 seconds, using the `options.duration` parameter.
+
+```
+{
+  options: {
+    duration: "5 minutes"
+  }
+}
+```
+
+### Invite user with immediate password set
+
+By default, invite emails contain a login link that will log the user in directly. However, this flow does not ask the user to set a password right away. Now it is possible to use a password reset link in place of a login link in the invite email by using the `options.type` parameter.
+
+```
+{
+  options: {
+    type: "reset"
+  }
+}
+```
+
 ## December 2021
 
 ### Add API endpoints to create, invalidate, and delete API keys
