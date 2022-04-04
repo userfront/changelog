@@ -2,6 +2,44 @@
 
 Additions and updates to the Userfront platform
 
+## March 2022
+
+### SMS Multi-Factor Authentication (beta)
+
+Multi-factor authentication (MFA) is officially live through the use of security codes sent by SMS.
+
+- [API endpoints](https://userfront.com/docs/api-client.html#multi-factor-authentication)
+
+We will release SDK methods and integrate MFA into the toolkit as well in the coming weeks.
+
+Authenticator MFA is next.
+
+### Improved rate limiting
+
+We improved our internal rate limiting infrastructure to further prevent unwanted access attempts and to harden the service overall.
+
+### Custom cookie attributes (beta)
+
+Browser storage for JWT access tokens is now customizable. See the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies) for more information about cookie attributes.
+
+| Cookie attribute | Default | Options                   | Notes                                                              |
+| :--------------- | :------ | :------------------------ | :----------------------------------------------------------------- |
+| `SameSite`       | `Lax`   | `Strict`, `Lax`, `None`   |                                                                    |
+| `Path`           | `/`     | Any path (e.g. `/custom`) |                                                                    |
+| Set `Domain`?    | `false` | `false`, `true`           | Setting `Domain` explicitly will allow subdomains to read cookies. |
+
+These options will be available in the dashboard shortly. If you need to adjust them in the meantime, please [contact us](team@userfront.com).
+
+## February 2022
+
+### Disable signups
+
+You can now disable new user registration and allow only the users you add manually to sign in. This feature will be added to the dashboard soon, but in the meantime you can [contact us](mailto:team@userfront.com) to set up this feature.
+
+### SMS Multi-Factor Authentication (alpha)
+
+Multi-factor authentication (MFA) is in production for alpha testing, with security codes sent by SMS.
+
 ## January 2022
 
 ### Improved user search endpoint and documentation
