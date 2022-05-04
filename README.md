@@ -2,6 +2,40 @@
 
 Additions and updates to the Userfront platform
 
+## April 2022
+
+### Authenticator app Multi-Factor Authentication (alpha)
+
+Multi-factor authentication (MFA) via TOTP (Time-based One-Time Password) / authenticator app is now available in alpha. This allows for MFA flows that use Google Authenticator, Authy, and other TOTP code-generating applications.
+
+This feature is in closed alpha and will be in beta shortly, followed by general release.
+
+As with SMS MFA, we will release SDK methods and integrate MFA into the toolkit in the coming weeks.
+
+### Disable all Userfront emails
+
+You can now disable all emails from Userfront, ensuring that there are no triggers that will generate an automated email from Userfront to your users. This feature will be added to the dashboard soon, and in the meantime you can [contact us](mailto:team@userfront.com) to set up this feature.
+
+### Support for `x-origin` header
+
+Previously, when making [client-to-server](https://userfront.com/docs/api-client.html) requests from a mobile application or backend server in live mode, the request could include the `x-application-id` header in place of the `origin` header (which the browser sends). Now the request can additionally include either the `x-origin` header or the `x-application-id` header.
+
+The chosen header should correspond to a live mode domain in order for the request to be considered live mode. For example:
+
+```json
+{
+  "headers": {
+    "x-origin": "https://livedomain.com"
+  }
+}
+```
+
+### Login option: `noResetEmail`
+
+The default behavior on Userfront is that when a user attempts to [log in with a password](https://userfront.com/docs/api-client.html#log-in-with-password) but does not yet have a password set, Userfront sends the user a password reset email. This can happen with users who have previously signed in with SSO, for example.
+
+With the the included `noResetEmail: true` flag, Userfront does not send the user a password reset email if they do not already have a password, and instead returns an error message.
+
 ## March 2022
 
 ### SMS Multi-Factor Authentication (beta)
@@ -28,7 +62,7 @@ Browser storage for JWT access tokens is now customizable. See the [MDN docs](ht
 | `Path`           | `/`     | Any path (e.g. `/custom`) |                                                                    |
 | Set `Domain`?    | `false` | `false`, `true`           | Setting `Domain` explicitly will allow subdomains to read cookies. |
 
-These options will be available in the dashboard shortly. If you need to adjust them in the meantime, please [contact us](team@userfront.com).
+These options will be available in the dashboard shortly. If you need to adjust them in the meantime, please [contact us](mailto:team@userfront.com).
 
 ## February 2022
 
