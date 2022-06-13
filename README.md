@@ -2,6 +2,38 @@
 
 Additions and updates to the Userfront platform
 
+## June 2022 (so far)
+
+### `updatePassword()` method
+
+Added the [updatePassword()](https://userfront.com/docs/js.html#updatepassword-options) method to Core JS. This method supersedes the `resetPassword()` method, which is now an alias, and allows for updating a user's password with their reset link credentials or while the user is logged in.
+
+## May 2022
+
+### Add Apple SSO
+
+Single Sign-On is now available for Apple on both web and mobile. For mobile applications it satisfies Apple's requirement to include Apple as an SSO option whenever any other providers are included.
+
+### Add Azure single-tenant SSO
+
+Users can now sign in via Oauth 2.0 using Azure with single tenant. Previously, this was only possible for multi-tenant Azure instances.
+
+### Password update endpoint for logged in users
+
+Added an API endpoint for [Update own password](https://userfront.com/docs/api-client.html#update-own-password) that allows a user to update their own password when logged in. If the user does not have a password yet (e.g. if they signed in with SSO), this endpoint creates their password.
+
+### Tenant search endpoint
+
+Added an API endpoint for [Search tenants](https://userfront.com/docs/api.html#search-tenants) that allows searching for tenants by `name`, custom `data` attributes, and/or `tenantId`.
+
+### Phone number verification
+
+Added an API endpoint for [Verify a phone number](https://userfront.com/docs/api-client.html#verify-a-phone-number) that allows a user to send a 6-digit verification code by SMS to the given phone number and then enter that 6-digit verification code to verify the phone number. Once a phone number is verified, it can be used for login or multi-factor authentication.
+
+### Email 6-digit verification codes
+
+Added the ability to log in by receiving a 6-digit verification code by email. Users can receive their code and submit it to the [verification code login](https://userfront.com/docs/api-client.html#log-in-with-verification-code) endpoint to log in.
+
 ## April 2022
 
 ### Authenticator app Multi-Factor Authentication (alpha)
