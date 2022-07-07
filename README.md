@@ -2,7 +2,30 @@
 
 Additions and updates to the Userfront platform
 
-## June 2022 (so far)
+## June 2022
+
+### Login with verification code and TOTP authenticator
+
+It's now possible to login with 2 more approaches:
+
+- Login or signup via a single-use verification code sent either by email or SMS
+  - [Sign up with verification code](https://userfront.com/docs/api-client.html#sign-up-with-verification-code)
+  - [Log in with verification code](https://userfront.com/docs/api-client.html#log-in-with-verification-code)
+- Login with a TOTP app such as Google Authenticator or Authy
+  - [Set up TOTP authenticator](https://userfront.com/docs/api-client.html#set-up-totp-authenticator)
+  - [Log in with TOTP authenticator](https://userfront.com/docs/api-client.html#log-in-with-totp-authenticator)
+
+### `signup({ method: "verificationCode" })` and `login({ method: "verificationCode" })`
+
+Accompanying the verification code approaches above, the [signup()](https://userfront.com/docs/js.html#signup-options) and [login()](https://userfront.com/docs/js.html#login-options) methods for Core JS now support the `verificationCode` method.
+
+### `login({ method: "totp" })`
+
+Accompanying the TOTP authenticator code approach above, the [login()](https://userfront.com/docs/js.html#login-options) method for Core JS now supports the `totp` method.
+
+### `sendVerificationCode()`
+
+Added the [sendVerificationCode()](https://userfront.com/docs/js.html#sendverificationcode-options) method to Core JS. This method allows a user to request an email or SMS with a single-use verification code. The verification code can be used with `login({ method: "verificationCode" })` mentioned above.
 
 ### `updatePassword()` method
 
