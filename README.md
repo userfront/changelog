@@ -4,7 +4,7 @@ Additions and updates to the Userfront platform
 
 ## June 2022
 
-### Login with verification code and TOTP authenticator
+### Verification code and TOTP authenticator
 
 It's now possible to login with 2 more approaches:
 
