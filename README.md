@@ -21,7 +21,7 @@ Added the `GET /self` endpoint to allow a logged-in user to read detailed inform
   "data": {
     "custom": "data"
   },
-  ...,
+  // ...,
   "tenant": {
     "tenantId": "demo1234",
     "name": "Demo Account"
