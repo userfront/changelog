@@ -4,6 +4,61 @@ Additions and updates to the Userfront platform
 
 ## October 2022
 
+### `GET /self` endpoint
+
+Added the `GET /self` endpoint to allow a logged-in user to read detailed information about themself. See [Read own user data](https://userfront.com/docs/api-client#read-own-user-data).
+
+```json
+{
+  "mode": "live",
+  "userId": 5,
+  "tenantId": "demo1234",
+  "email": "user@example.com",
+  "name": "Jane Doe",
+  "locked": false,
+  "isConfirmed": true,
+  "isMfaRequired": false,
+  "data": {
+    "custom": "data"
+  },
+  ...,
+  "tenant": {
+    "tenantId": "demo1234",
+    "name": "Demo Account"
+  },
+  "authentication": {
+    "firstFactors": [
+      { "strategy": "password", "channel": "email" },
+      { "strategy": "link", "channel": "email" }
+    ],
+    "secondFactors": [{ "strategy": "totp", "channel": "authenticator" }]
+  },
+  "authorization": {
+    "demo1234": {
+      "roles": []
+    }
+  }
+}
+```
+
+### Nested roles
+
+It is now possible to use your account-level API key or JWT access token to manage roles for your nested tenants.
+
+This means you can have a structure like the following:
+
+- Your account
+  - Organization A
+    - Workspace A1
+    - Workspace A2
+  - Organization B
+    - Workspace B1
+    - Workspace B2
+
+Each level can have its own roles, and each user can have roles at any level, or at multiple levels. For example, a user could be a `viewer` at the account level, an `editor` in Organization A, an `owner` in Workspace A2, and a `guest` in Workspace B1.
+
+You can manage roles for each user using the [Roles](https://userfront.com/docs/api#roles) API endpoints.
+
 ## September 2022
 
 ### New dashboard 🎉
@@ -22,15 +77,17 @@ The old dashboard will remain available at https://old.userfront.com through the
 
 ### Tenant nesting
 
-Now you can nest tenants an additional level, so that your account API key or a user's JWT access token can be used to manipulate a grandchild tenant.
+Now you can nest tenants an additional level, allowing you to create sub-organizations within your application.
 
-- Your account
+- Your application
   - Organization A
     - Workspace A1
     - Workspace A2
   - Organization B
     - Workspace B1
     - Workspace B2
+
+See the [create child tenant](https://userfront.com/docs/api#create-child-tenant) endpoint to create a nested tenant. Once you have created a child tenant, the other existing endpoints work the same as for the parent tenant.
 
 ## August 2022
 
