@@ -8,7 +8,7 @@ Additions and updates to the Userfront platform
 
 Added the `GET /self` endpoint to allow a logged-in user to read detailed information about themself. See [Read own user data](https://userfront.com/docs/api-client#read-own-user-data).
 
-```json
+```js
 {
   "mode": "live",
   "userId": 5,
