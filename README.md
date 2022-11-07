@@ -2,6 +2,91 @@
 
 Additions and updates to the Userfront platform
 
+## October 2022
+
+## September 2022
+
+### New dashboard 🎉
+
+The new Userfront dashboard is live, with many new features.
+
+- [New dashboard home page](https://userfront.com/dashboard) that includes insights and top users for your account, automatically calculated based on your application's activity.
+  ![Userfront dashboard](https://res.cloudinary.com/component/image/upload/v1667837508/permanent/dashboard-home.png)
+
+- [Insights](https://userfront.com/dashboard/insights) page with additional insights.
+- [Security report](https://userfront.com/dashboard/security) with detailed information about all of your security settings, all in one place.
+- [MFA configuration](https://userfront.com/dashboard/authentication) page that allows you to configure which factors you want to use for MFA, and whether it should be required for all users.
+  ![MFA configuration](https://res.cloudinary.com/component/image/upload/v1667837508/permanent/dashboard-mfa.png)
+
+The old dashboard will remain available at https://old.userfront.com through the end of 2022.
+
+### Tenant nesting
+
+Now you can nest tenants an additional level, so that your account API key or a user's JWT access token can be used to manipulate a grandchild tenant.
+
+- Your account
+  - Organization A
+    - Workspace A1
+    - Workspace A2
+  - Organization B
+    - Workspace B1
+    - Workspace B2
+
+## August 2022
+
+### Improved usage recording
+
+Userfront now records all signup and login activities to help identify usage patterns and attempted unauthorized actions. These events and metrics will soon be available to view in the dashboard.
+
+### Improved usage reporting
+
+Userfront now aggregates user activity into daily and monthly summaries for your account. This includes:
+
+- Daily Active Users (DAU)
+- Daily new users
+- Monthly Active Users (MAU)
+- Total users
+- Top existing users
+- Top new users
+- Calendar heat maps for signups
+- Calendar heat maps for activity
+- Cohort analysis
+
+This aggregate information will soon be available to view in the dashboard.
+
+## July 2022
+
+### Improved brute force security
+
+All nonce-based security methods now have enhanced security, with brute-force detection and blocking built in.
+
+By default, each link can only be guessed 10 times before the link credentials will be marked as invalid. Userfront also records these attempts, and in the future will notify you when they occur.
+
+This change adds additional brute force security and monitoring to the following:
+
+- Passwordless links
+- Password reset links
+- Verification codes
+- SSO final step (Google, Facebook, Azure, Apple, etc.)
+- SAML exchange
+- MFA first factor token
+
+### `authentication` object included in API response
+
+For [user CRUD operations](https://userfront.com/docs/api#users), Userfront now returns a list of authentication methods that are valid for the user:
+
+```json
+{
+  "authentication": {
+    "firstFactors": [
+      { "strategy": "password", "channel": "email" },
+      { "strategy": "google", "channel": "email" }
+    ],
+    "secondFactors": [{ "strategy": "totp", "channel": "authenticator" }]
+  }
+}
+```
+
 ## June 2022
 
 ### Verification code and TOTP authenticator
