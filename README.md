@@ -1,3 +1,9 @@
+# Deprecation notice
+
+This resource has been deprecated; please visit [userfront.com/changelog](https://www.userfront.com/changelog) instead.
+
+--- 
+
 # Userfront changelog
 
 Additions and updates to the Userfront platform
